@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    web:
+        tty: true
+        image: nginx-php
+        ports:
+            - "80:80"
+    db:
+        image: mysql
+        volumes:
+            - "db-data:/var/lib/mysql"
+        environment:
+            - "MYSQL_ROOT_PASSWORD=1234qwerty"
+            - "MYSQL_USER=moodle"
+            - "MYSQL_PASSWORD=qwerty"
+            - "MYSQL_DATABASE=moodle"
+
+volumes:
+    db-data:
